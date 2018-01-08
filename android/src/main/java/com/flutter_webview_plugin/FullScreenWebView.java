@@ -1,5 +1,7 @@
 package com.flutter_webview_plugin;
 
+import android.app.Activity;
+import android.os.Handler;
 import android.view.View;
 import android.webkit.WebView;
 
@@ -16,14 +18,12 @@ class FullScreenWebView extends WebView {
 
     public void setFullScreen(boolean fullScreen) {
         mFullScreen = fullScreen;
-        if (fullScreen) {
-            setOnSystemUiVisibilityChangeListener(this);
-            setOnClickListener(this);
-        }
     }
 
-    public FullScreenWebView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public FullScreenWebView(Activity activity) {
+        super(activity);
+        setOnSystemUiVisibilityChangeListener(this);
+        setOnClickListener(this);
     }
 
     @Override public void onSystemUiVisibilityChange(int visibility) {
@@ -43,6 +43,9 @@ class FullScreenWebView extends WebView {
     }
 
     void setNavVisibility(boolean visible) {
+        if (!fullScreen) {
+            return;
+        }
         int newVis = SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 | SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                 | SYSTEM_UI_FLAG_LAYOUT_STABLE;

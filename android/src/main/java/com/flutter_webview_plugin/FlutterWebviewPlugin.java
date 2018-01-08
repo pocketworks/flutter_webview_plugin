@@ -59,7 +59,7 @@ public class FlutterWebviewPlugin implements MethodCallHandler {
             intent.putExtra(WebviewActivity.WITH_JAVASCRIPT_KEY, (boolean) call.argument("withJavascript"));
             intent.putExtra(WebviewActivity.CLEAR_CACHE_KEY, (boolean) call.argument("clearCache"));
             intent.putExtra(WebviewActivity.CLEAR_COOKIES_KEY, (boolean) call.argument("clearCookies"));
-            intent.putExtra(WebviewActivity.FULLSCREEN, (boolean) call.argument("fullScreen"));
+            intent.putExtra(WebviewActivity.FULLSCREEN_KEY, (boolean) call.argument("fullScreen"));
             activity.startActivityForResult(intent, WEBVIEW_ACTIVITY_CODE);
         } else {
             if (webViewManager == null) {
