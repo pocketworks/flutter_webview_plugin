@@ -14,7 +14,7 @@ class FullScreenWebView extends WebView {
         }
     };
 
-    public setFullScreen(boolean fullScreen) {
+    public void setFullScreen(boolean fullScreen) {
         mFullScreen = fullScreen;
         if (fullScreen) {
             setOnSystemUiVisibilityChangeListener(this);
