@@ -60,7 +60,7 @@ class FullScreenWebView extends WebView implements View.OnSystemUiVisibilityChan
             Handler h = getHandler();
             if (h != null) {
                 h.removeCallbacks(mNavHider);
-                h.postDelayed(mNavHider, 3000);
+                h.postDelayed(mNavHider, 10000);
             }
         }
 
