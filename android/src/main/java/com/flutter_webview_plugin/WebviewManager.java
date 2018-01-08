@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
 import android.webkit.ValueCallback;
-import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import io.flutter.plugin.common.MethodCall;
@@ -19,10 +18,10 @@ import io.flutter.plugin.common.MethodChannel;
 
 class WebviewManager {
 
-    WebView webView;
+    FullScreenWebView webView;
 
     WebviewManager(Activity activity) {
-        this.webView = new WebView(activity);
+        this.webView = new FullScreenWebView(activity);
         WebViewClient webViewClient = new BrowserClient();
         webView.setWebViewClient(webViewClient);
     }
@@ -45,7 +44,7 @@ class WebviewManager {
         webView.clearFormData();
     }
 
-    void openUrl(boolean withJavascript, boolean clearCache, boolean hidden, boolean clearCookies, String userAgent, String url) {
+    void openUrl(boolean withJavascript, boolean clearCache, boolean hidden, boolean clearCookies, String userAgent, String url, boolean fullScreen) {
         webView.getSettings().setJavaScriptEnabled(withJavascript);
 
         if (clearCache) {
@@ -64,6 +63,7 @@ class WebviewManager {
             webView.getSettings().setUserAgentString(userAgent);
         }
 
+        webView.setFullScreen(fullScreen);
         webView.loadUrl(url);
     }
 

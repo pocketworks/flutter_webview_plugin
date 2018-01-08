@@ -17,6 +17,7 @@ public class WebviewActivity extends Activity implements MethodChannel.MethodCal
     static public final String CLEAR_COOKIES_KEY = "CLEAR_COOKIES";
     static public final String WITH_JAVASCRIPT_KEY = "WITH_JAVASCRIPT";
     static public final String USER_AGENT_KEY = "USER_AGENT";
+    static public final String FULLSCREEN_KEY = "FULLSCREEN";
 
     static WebviewManager webViewManager;
 
@@ -34,7 +35,8 @@ public class WebviewActivity extends Activity implements MethodChannel.MethodCal
                 false,
                 getIntent().getBooleanExtra(CLEAR_COOKIES_KEY, false),
                 getIntent().getStringExtra(USER_AGENT_KEY),
-                getIntent().getStringExtra(URL_KEY)
+                getIntent().getStringExtra(URL_KEY),
+                getIntent().getBooleanExtra(FULLSCREEN_KEY, true)
                 );
     }
 
