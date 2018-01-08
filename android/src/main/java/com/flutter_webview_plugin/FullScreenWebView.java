@@ -5,9 +5,9 @@ import android.os.Handler;
 import android.view.View;
 import android.webkit.WebView;
 
-class FullScreenWebView extends WebView {
+class FullScreenWebView extends WebView implements View.OnSystemUiVisibilityChangeListener, View.OnClickListener {
     boolean mNavVisible;
-    boolean mFullScreen = false;
+    boolean mFullScreen = true;
     int mLastSystemUiVis;
 
     Runnable mNavHider = new Runnable() {
@@ -43,7 +43,7 @@ class FullScreenWebView extends WebView {
     }
 
     void setNavVisibility(boolean visible) {
-        if (!fullScreen) {
+        if (!mFullScreen) {
             return;
         }
         int newVis = SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
