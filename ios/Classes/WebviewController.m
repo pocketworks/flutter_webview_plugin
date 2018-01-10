@@ -52,7 +52,7 @@
     [self.view addSubview:webView];
 }
 
--(NSUInteger)supportedInterfaceOrientations
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationLandscape;
 }
