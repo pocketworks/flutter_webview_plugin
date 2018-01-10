@@ -54,7 +54,7 @@
 
 -(UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMask.Landscape;
+    return UIInterfaceOrientationMaskLandscape;
 }
 
 - (IBAction)backButtonPressed:(id)sender {
