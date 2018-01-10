@@ -52,6 +52,11 @@
     [self.view addSubview:webView];
 }
 
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationLandscape;
+}
+
 - (IBAction)backButtonPressed:(id)sender {
     [channel invokeMethod:@"onBackPressed" arguments:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
