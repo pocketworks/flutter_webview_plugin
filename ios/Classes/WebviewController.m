@@ -14,8 +14,11 @@
     [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
     if (self.webview) {
         self.webview.frame = CGRectMake(self.webview.bounds.origin.x, self.webview.bounds.origin.y, size.width, size.height);
-        [self.webview stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"window.resizeTo(%.2f,%.2f)", size.width, size.height]];
     }
+    [coordinator animateAlongsideTransition:^(id context) {
+    } completion:^(id context) {
+        [self.webview reload];
+    }];
 }
 
 

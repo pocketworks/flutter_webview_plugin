@@ -83,7 +83,13 @@ static NSString *const CHANNEL_NAME = @"flutter_webview_plugin";
     
     self.webview = [[UIWebView alloc] initWithFrame:rc];
     self.webview.delegate = self;
-    
+
+    if (rect == nil) {
+        self.webview.scrollView.contentSize = rc.size;
+        self.webview.scrollView.scrollEnabled = NO;
+        self.webview.scrollView.bounces = NO;
+    }
+
     if (hidden != (id)[NSNull null] && [hidden boolValue])
         self.webview.hidden = YES;
     webviewController.webview = self.webview;
