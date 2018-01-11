@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface WebviewController : UIViewController
-- (instancetype)initWithUrl:(NSString *)url withJavascript:(NSNumber *)withJavascript clearCache:(NSNumber *)clearCache clearCookes:(NSNumber *)clearCookies;
+@property (nonatomic, retain) UIWebView *webview;
 @end
+
+

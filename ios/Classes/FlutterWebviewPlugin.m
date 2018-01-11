@@ -1,4 +1,5 @@
 #import "FlutterWebviewPlugin.h"
+#import "WebviewController.h"
 
 static NSString *const CHANNEL_NAME = @"flutter_webview_plugin";
 
@@ -53,6 +54,7 @@ static NSString *const CHANNEL_NAME = @"flutter_webview_plugin";
     NSDictionary *rect = call.arguments[@"rect"];
     _enableAppScheme = call.arguments[@"enableAppScheme"];
     NSString *userAgent = call.arguments[@"userAgent"];
+    WebviewController *webviewController = [WebviewController alloc];
     
     //
     if (clearCache != (id)[NSNull null] && [clearCache boolValue]) {
@@ -84,8 +86,11 @@ static NSString *const CHANNEL_NAME = @"flutter_webview_plugin";
     
     if (hidden != (id)[NSNull null] && [hidden boolValue])
         self.webview.hidden = YES;
-    [self.viewController.view addSubview:self.webview];
-    
+    webviewController.webview = self.webview;
+    [webviewController.view addSubview:self.webview];
+    [self.viewController addChildViewController:webviewController];
+    [self.viewController.view addSubview:webviewController.view];
+
     [self launch:call];
 }
 
