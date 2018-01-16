@@ -107,6 +107,13 @@ static NSString *const CHANNEL_NAME = @"flutter_webview_plugin";
     [self.webview loadRequest:request];
 }
 
+- (void)viewDidAppear {
+    if (@available(iOS 11.0, *)) {
+        self.viewController.additionalSafeAreaInsets = UIEdgeInsetsZero;
+        self.viewController.childViewControllers[0].additionalSafeAreaInsets = UIEdgeInsetsZero;
+    }
+}
+
 - (NSString *)evalJavascript:(FlutterMethodCall*)call {
     NSString *code = call.arguments[@"code"];
     
