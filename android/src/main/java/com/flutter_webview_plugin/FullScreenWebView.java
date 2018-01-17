@@ -24,7 +24,6 @@ class FullScreenWebView extends WebView implements View.OnSystemUiVisibilityChan
     public FullScreenWebView(Activity activity) {
         super(activity);
         setOnSystemUiVisibilityChangeListener(this);
-        setOnClickListener(this);
     }
 
     @Override public void onSystemUiVisibilityChange(int visibility) {
