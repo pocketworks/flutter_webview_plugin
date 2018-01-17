@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.view.View;
 import android.webkit.WebView;
 
-class FullScreenWebView extends WebView implements View.OnSystemUiVisibilityChangeListener, View.OnClickListener {
+class FullScreenWebView extends WebView implements View.OnSystemUiVisibilityChangeListener {
     boolean mNavVisible;
     boolean mFullScreen = true;
     int mLastSystemUiVis;
