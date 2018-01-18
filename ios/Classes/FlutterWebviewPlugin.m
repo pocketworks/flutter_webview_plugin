@@ -139,7 +139,8 @@ static NSString *const CHANNEL_NAME = @"flutter_webview_plugin";
         [channel invokeMethod:@"onUrlChanged" arguments:data];
     }
 
-    if (![request.URL.absoluteString hasPrefix:@"https://pocketworks-website.s3.amazonaws.com/"]) {
+    if (![request.URL.absoluteString hasPrefix:@"https://pocketworks-website.s3.amazonaws.com/"] &&
+        ![request.URL.absoluteString hasPrefix:@"about"]) {
         return NO;
     }
     
